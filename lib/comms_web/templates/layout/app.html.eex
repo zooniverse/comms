@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script>window.userToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzUxMiJ9.eyJkYXRhIjp7ImlkIjoyOTk3NzgsImxvZ2luIjoibWFydGVudmVsZHRodWlzIiwiZG5hbWUiOiJNYXJ0ZW4iLCJzY29wZSI6WyJ1c2VyIiwicHJvamVjdCIsImdyb3VwIiwiY29sbGVjdGlvbiIsImNsYXNzaWZpY2F0aW9uIiwic3ViamVjdCIsIm1lZGl1bSIsIm9yZ2FuaXphdGlvbiIsInB1YmxpYyJdLCJhZG1pbiI6dHJ1ZX0sImV4cCI6MTUwNjU5NjY2MCwiaXNzIjoicGFuLXByb2QiLCJybmciOiJkNzFkIn0.SH1Cue1O8gM8JM7AVrnDOw7lI-yV_pTspbEL1yMm1dkzC841GMdSG0vWIMAz23ITNGDKqOvBppF1Ajdz-wXFTYgd-XS3pqN4XvMZQ9BDNuiMxBDDTQqLwaELOqymquULw9oA9lTXqfh9EFIyiHvht8mhI9_gg3aDw8TNBg4r293ug5hHpm988LwxCXUw4dt0wMBYYYxd9nAprG1Sx92QFygnHi9NYLwQUKiwmONePix6GJ46-6AcRI65D7bLYhr1eAoqO-aqQCNdqKdkt5dQvmEH8MNfRipKx7qRi9HrIEtQru3-288ACoOixYYtrro7jmzmDCSF-81k-v1eyYQjx4xIcbL4mNg_7w-lSSttOE6P-czXn2QgS2h0_PS3OTmKOzx-nYkpm7B5UDbIRh_MNjT6Tw_ZdyXxJh8dwTlY-KAxkCUrI9Sl5ZNpd6jtnQTsKC5GP22OQTRsZiwSEHoySl_oot2HuEuWtbjB2IdgPm6UkuaemTtdTS9PS6L8yTyuMt7NcJne6ZxBVrQlauhTbFlKPAyJcCznpgjuLIlPMUI3XA6I5RSnTj6VsBYWh2pV94_Fy9fM7s29Q8yGbGhW13_xt1Sf6qbwDT0IOTKzG-t99GDFNJez_OKaY5KrbUPrIiw4kqHB4QLgFaH_PDZ9C1vZ7xgHJIa6uX6ADQE7r68";</script>
+
+    <title>Hello Comms!</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <nav role="navigation">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          </ul>
+        </nav>
+        <span class="logo"></span>
+      </header>
+
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+    </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

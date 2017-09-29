@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require 'uri'
+require 'net/http'
+require 'json'
+
+DESTINATION = URI(ENV["SERVER_URL"] || "http://localhost:4000/api/kinesis")
+
+def submit(data)
+  return if data == "none\n"
+
+  req = Net::HTTP::Post.new(DESTINATION, 'Content-Type' => 'application/json')
+  payload = {payload: [JSON.parse(data)]}
+  req.body = payload.to_json
+  res = Net::HTTP.start(DESTINATION.hostname, DESTINATION.port) do |http|
+    http.request(req)
+  end
+  puts "Got: #{res.code}"
+end
+
+ARGF.each_line do |line|
+  submit(line)
+end
