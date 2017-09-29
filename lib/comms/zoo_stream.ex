@@ -15,7 +15,7 @@ defmodule ZooStream do
       user_id: data["links"]["user"],
       subject_ids: data["links"]["subjects"],
       subject_urls: subject_urls(data["links"]["subjects"], linked["subjects"]),
-      geo: nil #Geo.locate(data["user_ip"])
+      geo: Geo.locate(data["user_ip"])
     }
 
     CommsWeb.Endpoint.broadcast("project:#{project_id}", "classification", message)

@@ -19,7 +19,7 @@ defmodule Comms.Mixfile do
   def application do
     [
       mod: {Comms.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :geolix]
     ]
   end
 
@@ -38,7 +38,8 @@ defmodule Comms.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:joken, "~> 1.5"}
+      {:joken, "~> 1.5"},
+      {:geolix, "~> 0.14.0"}
     ]
   end
 end
