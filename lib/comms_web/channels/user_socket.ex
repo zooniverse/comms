@@ -3,8 +3,9 @@ defmodule CommsWeb.UserSocket do
 
   ## Channels
   # channel "room:*", CommsWeb.RoomChannel
-  channel "zooniverse", CommsWeb.ZooniverseChannel
   channel "project:*", CommsWeb.ProjectChannel
+  channel "lobby:*", CommsWeb.LobbyChannel
+  channel "user:*", CommsWeb.UserChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

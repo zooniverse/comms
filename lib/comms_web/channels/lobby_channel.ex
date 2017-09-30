@@ -1,8 +1,17 @@
-defmodule CommsWeb.ZooniverseChannel do
+defmodule CommsWeb.LobbyChannel do
   use CommsWeb, :channel
   alias CommsWeb.Presence
 
-  def join("zooniverse", payload, socket) do
+  def join("lobby:project:" <> project_id, payload, socket) do
+    if authorized?(payload) do
+      send(self(), :after_join)
+      {:ok, socket}
+    else
+      {:error, %{reason: "unauthorized"}}
+    end
+  end
+
+  def join("lobby:zooniverse", payload, socket) do
     if authorized?(payload) do
       send(self(), :after_join)
       {:ok, socket}
