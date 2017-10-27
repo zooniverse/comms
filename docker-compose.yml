@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  web:
+    build: ./
+    image: zooniverse/comms
+    volumes:
+      - ./:/app
+    ports:
+      - "4000:4000"
+    environment:
+      - "MIX_ENV=dev"
+      - "SECRET_KEY_BASE=secret"
+
+  test:
+    image: zooniverse/comms
+    volumes:
+      - ./:/app
+    environment:
+      - "MIX_ENV=test"

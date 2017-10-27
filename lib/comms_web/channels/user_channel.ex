@@ -2,7 +2,7 @@ defmodule CommsWeb.UserChannel do
   use CommsWeb, :channel
 
   def join("user:" <> user_id, payload, socket) do
-    if authorized?(user_id, payload) do
+    if authorized?(user_id, payload, socket) do
       {:ok, socket}
     else
       {:error, %{reason: "unauthorized"}}
@@ -15,7 +15,7 @@ defmodule CommsWeb.UserChannel do
     {:reply, {:ok, payload}, socket}
   end
 
-  defp authorized?(user_id, payload) do
-    true
+  defp authorized?(user_id, payload, socket) do
+    to_string(socket.assigns.user_id) == to_string(user_id)
   end
 end

@@ -1,12 +1,12 @@
-defmodule CommsWeb.ProjectChannelTest do
+defmodule CommsWeb.LobbyChannelTest do
   use CommsWeb.ChannelCase
 
-  alias CommsWeb.ProjectChannel
+  alias CommsWeb.LobbyChannel
 
   setup do
     {:ok, _, socket} =
-      socket("user_id", %{some: :assign})
-      |> subscribe_and_join(ProjectChannel, "project:lobby")
+      socket("user_id", %{user_id: 1})
+      |> subscribe_and_join(LobbyChannel, "lobby:project:1")
 
     {:ok, socket: socket}
   end
