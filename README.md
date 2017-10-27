@@ -1,5 +1,8 @@
 # Comms
 
+![Build Status](https://travis-ci.org/zooniverse/comms.svg?branch=master)
+
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
